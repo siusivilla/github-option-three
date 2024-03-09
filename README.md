@@ -43,6 +43,10 @@ OPTION 3
 - erase everything apart fom the `dist` folder from that second branch and push the changes (I named my branch 'prod')
 - verify that your 'main' branch contains your entire app, while the second branch only has the contents of the `dist` folder
 
+git checkout -p prod
+git add .
+git commit -m "stati pages branch"
+
 ### Step 8: 
 - go back to the 'main' branch and push -> this should trigger the workflow from the `main.yaml` file
 
