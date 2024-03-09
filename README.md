@@ -31,6 +31,7 @@ OPTION 3
 
 ### Step 5:
 - setup a personal acces token GH_TOKEN to use later (classic)
+validità?
 
 ### Step 6:
 - create a `main.yaml` file in `.github/workflows/main.yaml` at root level
