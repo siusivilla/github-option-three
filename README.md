@@ -1,27 +1,50 @@
-# GithubOptionThree
+# [Angular v17 Deploy To GitHub Pages using GitHub Actions CI/CD (automated)](https://www.youtube.com/watch?v=SMuB3qYjDUw)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.7.
+[![Alt Text](https://github.com/monacodelisa/angular-to-github-option-three-ci-cd/blob/main/thumbnail-angular-v17-deploy-github-pages-3-play.jpg?raw=true)](https://youtu.be/SMuB3qYjDUw)
 
-## Development server
+This is just a basic app that only contains relevant files to set up this type of deployment - not much else.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## [VIEW LIVE](https://monacodelisa.github.io/angular-to-github-option-three-ci-cd/)
 
-## Code scaffolding
+OPTION 3 
+- PROs 
+  - automated deployments CI/CD
+  - using a single github repo
+- CONs 
+  - the code is public when using GitHub free
+  - more involving setup, creating an additional branch, adding github actions, GH_TOKEN
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+### Step 1: 
+- create a git repo, create a local folder for the repo, init (github commands)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Step 2: 
+- create a your Angular (v17) app & push to `main` branch 
 
-## Running unit tests
+### Step 3:
+- add the build script command in `package.json`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+`"build:prod": "ng build --configuration=production --base-href=/<repoName>/"`
 
-## Running end-to-end tests
+### Step 4:
+- adjust `oututPath` in `angular.json` (dist)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Step 5:
+- setup a personal acces token GH_TOKEN to use later (classic)
 
-## Further help
+### Step 6:
+- create a `main.yaml` file in `.github/workflows/main.yaml` at root level
+- refer to this project for placement and contents (adjust to match your project)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+*using prebuilt github actions by James Ives [github-pages-deploy-action](https://github.com/JamesIves/github-pages-deploy-action)
+
+### Step 7:
+- create a new branch only for the contents of the `dist` folder
+- erase everything apart fom the `dist` folder from that second branch and push the changes (I named my branch 'prod')
+- verify that your 'main' branch contains your entire app, while the second branch only has the contents of the `dist` folder
+
+### Step 8: 
+- go back to the 'main' branch and push -> this should trigger the workflow from the `main.yaml` file
+
+### Step 9: 
+- setup github pages to use the second branch, the one that has only the contents of the `dist` folder
