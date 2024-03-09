@@ -22,11 +22,6 @@ export class SidenavComponent {
 			route: "/home",
 		},
 		{
-			label: "About Me",
-			icon: "pi pi-user",
-			route: "/about",
-		},
-		{
 			label: "About Angular",
 			icon: "pi pi-shield",
 			route: "/about-angular",
